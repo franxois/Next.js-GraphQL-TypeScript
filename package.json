@@ -12,9 +12,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "dev": "next -p 4012",
+    "dev": "next -p 4011",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 4012",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
