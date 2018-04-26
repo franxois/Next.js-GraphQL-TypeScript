@@ -6,8 +6,7 @@ module.exports = (baseConfig, env, defaultConfig) => {
   // For example, add typescript loader:
   defaultConfig.module.rules.push({
     test: /\.ts|\.tsx$/,
-    loader: "awesome-typescript-loader",
-    include: path.resolve(__dirname, "..")
+    use: "awesome-typescript-loader"
   });
   defaultConfig.resolve.extensions.push(".ts", ".tsx");
 
