@@ -1,7 +1,9 @@
 import * as React from "react";
 
-export default class App extends React.Component<any, any> {
+import { Component } from "react";
+
+export default class App extends Component {
   render() {
-    return <div>Hello from next.js !?</div>;
+    return <div>Hello from Next.js !</div>;
   }
 }
