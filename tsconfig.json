@@ -3,7 +3,8 @@
     "outDir": "production-server",
     "target": "es5",
     "jsx": "react",
-    "lib": ["es6", "dom", "esnext"]
+    "lib": ["es6", "dom", "esnext"],
+    "moduleResolution": "node"
   },
   "include": ["pages/**/*", "components/**/*"],
   "exclude": ["node_modules"]
