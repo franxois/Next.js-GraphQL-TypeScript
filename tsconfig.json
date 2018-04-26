@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "outDir": "production-server",
     "target": "es5",
     "jsx": "react",
     "lib": ["es6", "dom", "esnext"],

@@ -31,7 +31,7 @@
   "scripts": {
     "dev": "nodemon",
     "build": "next build && tsc --project tsconfig.server.json",
-    "start": "PORT=4012 NODE_ENV=production node production-server/index.js",
+    "start": "PORT=4012 NODE_ENV=production node dist/index.js",
     "test": "jest -c jest.config.json",
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
