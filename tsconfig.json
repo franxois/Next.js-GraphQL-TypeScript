@@ -1,7 +1,10 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "jsx": "preserve",
-    "lib": ["es6", "dom", "esnext"]
-  }
+    "jsx": "react",
+    "lib": ["es6", "dom", "esnext"],
+    "moduleResolution": "node"
+  },
+  "include": ["pages/**/*", "components/**/*"],
+  "exclude": ["node_modules"]
 }
