@@ -1,2 +1,7 @@
-const withTs = require('@zeit/next-typescript');
-module.exports = withTs({ /* additional config*/ })
+const withAwesomeTypescript = require("next-awesome-typescript");
+
+module.exports = withAwesomeTypescript({
+  webpack(config, options) {
+    return config;
+  }
+});
