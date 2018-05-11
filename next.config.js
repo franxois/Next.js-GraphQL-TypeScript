@@ -1,6 +1,6 @@
-const withAwesomeTypescript = require("next-awesome-typescript");
+const withTypescript = require("@zeit/next-typescript");
 
-module.exports = withAwesomeTypescript({
+module.exports = withTypescript({
   webpack(config, options) {
     return config;
   }
