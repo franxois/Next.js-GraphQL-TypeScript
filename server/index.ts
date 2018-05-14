@@ -2,6 +2,8 @@ import * as express from "express";
 import { graphiqlExpress, graphqlExpress } from "apollo-server-express";
 import * as next from "next";
 
+const session = require("express-session");
+
 const port = parseInt(process.env.PORT, 10) || 4011;
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -9,6 +11,15 @@ const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
   const server: express.Application = express();
+
+  server.use(
+    session({
+      secret: "AvailproAndFastbooking",
+      resave: false,
+      saveUninitialized: true,
+      cookie: { maxAge: 1000 * 3600 * 4 } // 4 hours sessions
+    })
+  );
 
   if (process.env.NODE_ENV !== "production") {
     server.get("/graphiql", graphiqlExpress({ endpointURL: "/graphql" }));
