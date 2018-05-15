@@ -9,6 +9,10 @@ const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
+export interface Request extends express.Request {
+  session: any;
+}
+
 app.prepare().then(() => {
   const server: express.Application = express();
 
@@ -25,7 +29,14 @@ app.prepare().then(() => {
     server.get("/graphiql", graphiqlExpress({ endpointURL: "/graphql" }));
   }
 
-  server.get("*", (req, res) => {
+  server.get("/group/:id", (req, res) => {
+    // Set groupId
+    req.session.groupId = req.params.id;
+
+    return app.render(req, res, "/group", { id: req.params.id });
+  });
+
+  server.get("*", (req: Request, res) => {
     return handle(req, res);
   });
 
