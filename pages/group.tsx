@@ -2,16 +2,17 @@ import * as React from "react";
 
 import { Component } from "react";
 
-export interface HelloProps {
+export interface GroupProps {
   sessionID: string;
+  groupId: string;
 }
 
-export default class App extends Component<HelloProps, {}> {
-  static async getInitialProps({ req }) {
-    let props = { sessionID: null };
+export default class App extends Component<GroupProps, {}> {
+  static async getInitialProps({ req, query: { id } }): Promise<GroupProps> {
+    let props = { sessionID: null, groupId: id };
 
     if (req) {
-      // console.log(req);
+      // We are server side
       props.sessionID = req.sessionID;
     }
 
@@ -22,7 +23,7 @@ export default class App extends Component<HelloProps, {}> {
     // console.log("???? This props : ", this.props);
     return (
       <div>
-        Hello from Next.js
+        Page groupe for {this.props.groupId}
         <br />Current session id is {this.props.sessionID}
       </div>
     );
