@@ -1,5 +1,4 @@
 import * as express from "express";
-import { graphiqlExpress, graphqlExpress } from "apollo-server-express";
 import * as next from "next";
 
 const session = require("express-session");
@@ -24,10 +23,6 @@ app.prepare().then(() => {
       cookie: { maxAge: 1000 * 3600 * 4 } // 4 hours sessions
     })
   );
-
-  if (process.env.NODE_ENV !== "production") {
-    server.get("/graphiql", graphiqlExpress({ endpointURL: "/graphql" }));
-  }
 
   server.get("/group/:id", (req, res) => {
     // Set groupId
