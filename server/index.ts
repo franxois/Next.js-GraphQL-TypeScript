@@ -1,7 +1,6 @@
 import * as express from "express";
 import * as next from "next";
-
-const session = require("express-session");
+import * as session from "express-session";
 
 const port = parseInt(process.env.PORT, 10) || 4011;
 const dev = process.env.NODE_ENV !== "production";
@@ -17,7 +16,7 @@ app.prepare().then(() => {
 
   server.use(
     session({
-      secret: "AvailproAndFastbooking",
+      secret: "madeupseed",
       resave: false,
       saveUninitialized: true,
       cookie: { maxAge: 1000 * 3600 * 4 } // 4 hours sessions
@@ -37,8 +36,6 @@ app.prepare().then(() => {
 
   server.listen(port, err => {
     if (err) throw err;
-    console.log(
-      `> Ready on http://localhost:${port}`
-    );
+    console.log(`> Ready on http://localhost:${port}`);
   });
 });
